@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/all.min.css">
+    <title>Doma</title>
+</head>
+<body>
+    
+    <div class="welcome-screen ">
+        <div class="logo-box">
+            <img src="img/logo1.png" alt="logo">
+            <span>Doma</span>
+        </div>
+       
+    </div>
+
+    <div class="accueil-screen hidden">
+           <header>
+            <img src="img/logo1.png" alt="logo">
+                <span>Doma</span>
+                <i class="fa-solid fa-gear" onclick="switchContainer('parametres')"></i>
+                
+           </header>
+           <main>
+                <button id="gestion-des-joueurs-btn" onclick="switchContainer('gestion-joueurs')">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <span>Gestion des Joueurs</span>
+                        Ajouter,lister,modifier...
+                    </div>
+                    
+                </button>
+                <button onclick="switchContainer('jouer-partie')">
+                    <i class="fa-solid fa-dice-six"></i>
+                    <div>
+                        <span>Demarrer ou jouer une</span>
+                        Nouvelle partie,partie...
+                    </div>
+                    
+                </button>
+                <button onclick="switchContainer('statistiques')">
+                    <i class="fa-solid fa-ranking-star"></i>
+                    <div>
+                        <span>Statistiques</span>
+                       Top 1er,Top 2e,Top 3e...
+                    </div>
+                    
+                </button>
+                <button onclick="switchContainer('propos-doma')">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <span>A propos de Doma</span>
+                        Aide,Infos supp...
+                    </div>
+                    
+                </button>
+           </main>
+    </div>
+
+    <div class="gestion-joueurs-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('accueil')"></i>
+            Gestion des joueurs
+        </header>
+        <main>
+            <button onclick="switchContainer('ajouter-joueur')">
+                <i class="fa-solid fa-user-plus"></i>
+                <div>
+                    <span>Ajouter un joueur</span>
+                    
+                </div>
+                
+            </button>
+            <button onclick="switchContainer('lister-joueurs')">
+                <i class="fa-solid fa-list"></i>
+                <div>
+                    <span>Lister tous les Joueurs</span>
+                   
+                </div>
+               
+            </button>
+            
+        </main>
+
+    </div>
+
+    <div class="ajouter-joueur-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('gestion-joueurs')"></i>
+            Ajouter un joueur
+        </header>
+        <main>
+                <form id="form-ajouter-joueur">
+                    <div class="input-controls" >
+                        <label for="">Pseudo</label>
+                        <input type="text" id="input-pseudo" required>
+                    </div>
+                    <input type="submit" value="Ajouter">
+                </form>
+        </main>
+    </div>
+
+    <div class="lister-joueurs-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('gestion-joueurs')"></i>
+            Lister tous les joueurs
+            
+        </header>
+        <main>
+           
+            <!-- <button>
+                <i class="fa-solid fa-user"></i>
+                <div>
+                    <span>TG</span>
+                    
+                </div>
+                
+            </button>
+            <button>
+                <i class="fa-solid fa-user"></i>
+                <div>
+                    <span>Gouraige</span>
+                </div>
+               
+            </button>  -->
+        </main>
+    </div>
+
+    <div class="modifier-joueur-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('lister-joueurs')"></i>
+            Modifier un joueur
+        </header>
+        <main>
+            <form id="form-modifier-joueur">
+                <div class="input-controls" >
+                    <label >Pseudo</label>
+                    <input type="text" id="input-modifier-pseudo" required>
+                </div>
+                <div class="input-controls" >
+                    <label >1er</label>
+                    <input type="text" id="input-modifier-1er" required>
+                </div>
+                <div class="input-controls" >
+                    <label >2e</label>
+                    <input type="text" id="input-modifier-2e" required>
+                </div>
+                <div class="input-controls" >
+                    <label >3e</label>
+                    <input type="text" id="input-modifier-3e" required>
+                </div>
+                <div class="input-controls" >
+                    <label>Chien</label>
+                    <input type="text" id="input-modifier-chien" required>
+                </div>
+                <input type="submit" value="Modifier">
+            </form>
+        </main>
+    </div>
+
+    <div class="parametres-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('accueil')"></i>
+            Parametres
+        </header>
+        <main>
+            <button onclick="parametresScreenToPartie(0)">
+                <i class="fa-solid fa-list"></i>
+                <div>
+                    <span>Partie 1</span>
+                    
+                </div>
+                
+            </button>
+            <button onclick="parametresScreenToPartie(1)">
+                <i class="fa-solid fa-list"></i>
+                <div>
+                    <span>Partie 2</span>
+                    
+                </div>
+                
+            </button>
+            
+        </main>
+    </div>
+
+    <div class="parametres-partie-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('parametres')"></i>
+           <span>Parametres partie 1</span> 
+        </header>
+        <main>
+            <form id="form-modifier-partie">
+                <div class="input-controls" >
+                    <label for="">Total Point</label>
+                    <input type="text" id="input-modifier-total-point" required>
+                </div>
+                <input type="submit" value="Modifier">
+            </form>
+        </main>
+    </div>
+
+    <div class="jouer-partie-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('accueil')"></i>
+           <span>Jouer une partie...</span> 
+        </header>
+        <main>
+            <button onclick="switchContainer('nouvelle-partie')">
+                <i class="fa-solid fa-circle-plus"></i>
+                <div>
+                    <span>Nouvelle Partie</span>
+                    
+                </div>
+                
+            </button>
+            <button onclick="switchContainer('les-parties')">
+                <i class="fa-solid fa-list"></i>
+                <div>
+                    <span>Les Parties</span>
+                    
+                </div>
+                
+            </button>
+        </main>
+    </div>
+
+    <div class="nouvelle-partie-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('jouer-partie')"></i>
+           Nouvelle partie
+        </header>
+        <main>
+            <form id="form-nouvelle-partie">
+                <h4>Choisissez le type de partie ,voulu</h4>
+                <div class="input-controls" >
+                    <label for="">Partie de</label>
+                    <select id="partie" name="choix">
+                       
+                    </select>   
+                </div>
+                <h4>Choisissez les joueurs pour la partie</h4>
+                <div class="players-layout">
+                    <div class="input-controls" >
+                        <label for="">1er</label>
+                        <select id="p1" name="choix">
+                           
+                        </select>
+                        
+                    </div>
+                    <div class="input-controls" >
+                        <label for="">2e</label>
+                        <select id="p2" name="choix">
+                            
+                        </select>
+                        
+                    </div>
+                    <div class="input-controls" >
+                        <label for="">3e</label>
+                        <select id="p3" name="choix">
+                         
+                        </select>
+                        
+                    </div>
+                    <div class="input-controls" >
+                        <label for="">4e</label>
+                        <select id="p4" name="choix">
+                          
+                        </select>
+                        
+                    </div>
+                </div>
+               
+                <input type="submit" value="Creer">
+            </form>
+        </main>
+    </div>
+
+    <div class="les-parties-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('jouer-partie')"></i>
+           Les parties
+        </header>
+        <main>
+            <button onclick="switchContainer('partie-encours')">
+                <i class="fa-solid fa-rotate"></i>
+                <div>
+                    <span>En cours</span>
+                    
+                </div>
+                
+            </button>
+            <button onclick="switchContainer('partie-terminer')">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                    <span>Terminer</span>
+                </div>
+            </button>
+        </main>
+    </div>
+
+    <div class="partie-encours-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('les-parties')"></i>
+            En cours
+        </header>
+        <main>
+
+        </main>
+    </div>
+
+    <div class="partie-terminer-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('les-parties')"></i>
+            Terminer
+        </header>
+        <main>
+
+        </main>
+    </div>
+
+    <div class="marquage-partie-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('partie-encours')"></i>
+            Partie en cours
+        </header>
+        <main>
+            <div class="date-box">
+                <span>Date</span>
+                13/09/2023
+            </div>
+
+            <div class="box-player" style="--width: 15" id="box-player1">
+                <div class="entete">
+                    <span>Kayton</span>
+                    <div>
+                        <div class="point">50/1500 <span>pts</span>
+                        </div>
+                        <div class="point-restant">
+                            -1450/1500 <span>pts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="progress-bar">
+                </div>
+            </div>
+
+            <div class="box-player" style="--width: 15" id="box-player2">
+                <div class="entete">
+                    <span>Kayton</span>
+                    <div>
+                        <div class="point">50/1500 <span>pts</span>
+                        </div>
+                        <div class="point-restant">
+                            -1450/1500 <span>pts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="progress-bar">
+                </div>
+            </div>
+
+            <div class="box-player" style="--width: 15" id="box-player3">
+                <div class="entete">
+                    <span>Kayton</span>
+                    <div>
+                        <div class="point">50/1500 <span>pts</span>
+                        </div>
+                        <div class="point-restant">
+                            -1450/1500 <span>pts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="progress-bar">
+                </div>
+            </div>
+
+            <div class="box-player" style="--width: 15" id="box-player4">
+                <div class="entete">
+                    <span>Kayton</span>
+                    <div>
+                        <div class="point">50/1500 <span>pts</span>
+                        </div>
+                        <div class="point-restant">
+                            -1450/1500 <span>pts</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="progress-bar">
+                </div>
+            </div>
+
+            <div class="box-commandes">
+                <div class="input-controls">
+                    <label for="">Moins</label>
+                    <input type="checkbox" value="moins" id="moinsCheck">
+                </div>
+                
+                <div class="commandes-point">
+                    <button id="b10" data-points="5">5</button>
+                    <button id="b15" data-points="10">10</button>
+                    <button id="b50" data-points="50">50</button>
+                    <button id="b100" data-points="100">100</button>
+                </div>
+                <div class="commandes-player">
+                   
+                        <span  id="span-player1" data-cocher="non">TG</span>
+                        <span id="span-player2" data-cocher="non">Kayton</span>
+                        <span id="span-player3" data-cocher="non">Kiki</span>
+                        <span id="span-player4" data-cocher="non">Giben</span>
+                
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="notification-screen hidden">
+        <div class="notification-popup">
+            <div>
+                <i class="fa-solid fa-circle-check"></i>
+            <span>TG a ete ajouter avec succes !</span>
+            </div>
+            <button onclick="closePopupNotification()">Ok</button>
+        </div>
+    </div>
+
+    <div class="notification-screen hidden" id="notification-presentation">
+            <div class="presentation-popup">
+                <header>
+                    <span>Partie Terminer</span>
+                </header>
+                <main>
+                  <div id="first-player">
+                    <span >
+                        <span>Kayton:</span> 1er
+                    </span>
+                    <span>
+                        <span>Points:</span> 1000/1000pts
+                    </span>
+                  </div>
+
+                  <div>
+                    <span>
+                        <span>Kiki:</span> 2e
+                    </span>
+                    <span>
+                        <span>Points:</span> 700/1000pts
+                    </span>
+                  </div>
+
+                  <div>
+                    <span>
+                        <span>Pegigi:</span> 3e
+                    </span>
+                    <span>
+                        <span>Points:</span> 500/1000pts
+                    </span>
+                  </div>
+
+
+                  <div id="last-player">
+                    <span>
+                        <span>TG:</span> Chien
+                    </span>
+                    <span>
+                        <span>Points:</span> 300/1000pts
+                    </span>
+                  </div>
+                  <div class="button-choice">
+                        <button id="suitePartieButton">Jouer la suite de la Partie</button>
+                        <button>non,pas maintenant</button>
+                  </div>
+
+                </main>
+            </div>
+    </div>
+
+    <div class="notification-screen hidden" id="notification-presentation2">
+        <div class="presentation-popup">
+            <header>
+                <span>Partie Terminer</span>
+            </header>
+            <main>
+              <div id="first-player">
+                <span >
+                    <span>Kayton:</span> 1er
+                </span>
+                <span>
+                    <span>Points:</span> 1000/1000pts
+                </span>
+              </div>
+
+              <div>
+                <span>
+                    <span>Kiki:</span> 2e
+                </span>
+                <span>
+                    <span>Points:</span> 700/1000pts
+                </span>
+              </div>
+
+              <div>
+                <span>
+                    <span>Pegigi:</span> 3e
+                </span>
+                <span>
+                    <span>Points:</span> 500/1000pts
+                </span>
+              </div>
+
+
+              <div id="last-player">
+                <span>
+                    <span>TG:</span> Chien
+                </span>
+                <span>
+                    <span>Points:</span> 300/1000pts
+                </span>
+              </div>
+              <div class="button-ok">
+                    <button>Fermer</button>
+              </div>
+
+            </main>
+        </div>
+    </div>
+
+    <div class="notification-screen hidden" id="notification-modifier-partie">
+        <div class="choice-popup">
+            <h3>Options</h3>
+            <button id="afficher-partie-btn">Afficher</button>
+            <button id="modifier-partie-btn">Modifier</button>
+        </div>
+    </div>
+
+    <div class="notification-screen hidden" id="notification-3eJoueur">
+        <div class="choisir-troisieme-popup">
+            <form>
+               <h5>Choisissez un 3e Joueur <br> pour la suite de la partie</h5>
+               <div>
+                    <select id="select3eJoueur">
+                       
+                    </select>
+
+                    <input type="submit" value="ok"> 
+               </div>
+               
+            </form>
+        </div>
+    </div>
+
+    <div class="statistiques-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('accueil')"></i>
+           Statistiques
+        </header>
+        <main>
+            <button onclick="switchContainer('top-1er')">
+                <i class="fa-solid fa-ranking-star"></i>
+                <div>
+                    <span>Le Top des 1er(s)</span>
+                </div>
+                
+            </button>
+            <button onclick="switchContainer('top-2e')">
+                <i class="fa-solid fa-ranking-star"></i>
+                <div>
+                    <span>Le Top des 2e(s)</span>
+                   
+                </div>
+               
+            </button>
+            <button onclick="switchContainer('top-3e')">
+                <i class="fa-solid fa-ranking-star"></i>
+                <div>
+                    <span>Le Top des 3e(s)</span>
+                   
+                </div>
+               
+            </button>
+            <button onclick="switchContainer('top-chien')">
+                <i class="fa-solid fa-ranking-star"></i>
+                <div>
+                    <span>Le Top des Chiens</span>
+                </div>
+               
+            </button>
+            
+        </main>
+    </div>
+
+    <div class="top-1er-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('statistiques')"></i>
+           Le Top Des 1er(s)
+        </header>
+        <main>
+
+        </main>
+    </div>
+
+    <div class="top-2e-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('statistiques')"></i>
+           Le Top Des 2e(s)
+        </header>
+        <main>
+
+        </main>
+    </div>
+
+    <div class="top-3e-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('statistiques')"></i>
+           Le Top Des 3e(s)
+        </header>
+        <main>
+
+        </main>
+    </div>
+
+    <div class="top-chien-screen hidden">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('statistiques')"></i>
+           Le Top Des Chiens
+        </header>
+        <main>
+
+        </main>
+    </div>
+
+    <div class="screen layout flex hidden" id="propos-doma-screen">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('accueil')"></i>
+            A propos de Doma
+        </header>
+        
+        <main>
+                <button onclick="switchContainer('help')">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <span>Aide</span>                       
+                    </div>
+                </button>
+                <button onclick="switchContainer('important')">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <div>
+                        <span>Infos supplementaires</span>                       
+                    </div>
+                </button>
+        </main>
+    </div>
+
+    <div class="screen layout flex hidden" id="help-screen">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('propos-doma')"></i>
+            Aide
+        </header>
+        
+
+        <div class="layout__main layout__main-video">
+           <div class="video-container">
+                <video src="video/ajouter un ou plusieurs joueurs.webm" controls></video>
+                <div class="titre">
+                    Ajouter un ou plusieur joueur(s)
+                </div>
+           </div>
+
+            <div class="video-container">
+                <video src="video/Demarrer une nouvelle partie.webm" controls></video>
+                <div class="titre">
+                   Demarrer une nouvelle partie
+                </div>
+            </div>
+
+            <div class="video-container">
+                <video src="video/Ajouter des points.webm" controls></video>
+                <div class="titre">
+                    Ajouter des points
+                </div>
+           </div>
+
+            <div class="video-container">
+                <video src="video/Retirer des points.webm" controls></video>
+                <div class="titre">
+                    Retirer des points
+                </div>
+            </div>
+
+            <div class="video-container">
+                <video src="video/La fin d'une partie.webm" controls></video>
+                <div class="titre">
+                    La fin d'une partie
+                </div>
+            </div>
+
+            <div class="video-container">
+                 <video src="video/Jouer la suite d'une partie.webm" controls></video>
+                <div class="titre">
+                   Jouer la suite d'une partie
+                </div>
+            </div>
+
+            <div class="video-container">
+                <video src="video/Non,pas maintenant.webm" controls></video>
+                <div class="titre">
+                    Non,pas maintenant
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden" id="important-screen">
+        <header>
+            <i class="fa-solid fa-arrow-left" onclick="switchContainer('propos-doma')"></i>
+            Infos supplementaires
+        </header>
+        <main>
+            <p>
+                Si vous rencontrez des problèmes avec <strong>Doma</strong> ou si vous avez des suggestions pour l'améliorer,n'hésitez pas à nous contacter sur <strong>WhatsApp</strong> via ce numero <strong>(509) 34977530.</strong> <br>
+               <br> 
+                De plus,si vous souhaitez soutenir financièrement notre projet et contribuer a son développement,vous avez la possibilité de faire un don sur notre compte <strong>MonCash</strong> sur ce meme numero <strong>(509) 34977530</strong>. <br> <br>
+                chaque contribution compte et nous permet de continuer à améliorer <strong>Doma</strong> pour vous offrir de nouvelles fonctionnalités passionnantes. <br> <br>
+
+                Nous vous remercions sincèrement de votre soutien et de  l'utilisation de notre application. C'est grace à des utilisateurs comme vous que nous pouvons continuer à grandir et à innover.      
+            </p>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/view.js"></script>
+</body>
+</html>

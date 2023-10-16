@@ -1,0 +1,844 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #3f3f3f;
+}
+
+
+.welcome-screen{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20px 0; */
+}
+
+.welcome-screen .logo-box{
+    /* background: #7e4d4d; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.welcome-screen .logo-box img{
+    width: 150px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40%;
+    /* margin-bottom: 100px; */
+    /* margin: auto; */
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: apparition 0.4s 1s ease-out forwards;
+}
+
+.welcome-screen .logo-box span{
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0;
+    position: fixed;
+    bottom: 20px;
+    transform: translateY(30px);
+    animation: apparition 0.4s 1.4s ease-out forwards;
+}
+
+.disparition{
+    animation: disparition 0.4s  ease-out forwards;
+}
+
+.accueil-screen{
+    width: 100%;
+    height: 100vh;
+}
+
+.accueil-screen header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+   padding: 0 5px;
+}
+
+.accueil-screen header img{
+    width: 40px;
+}
+
+.accueil-screen header span{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.accueil-screen header i{
+    margin-left: auto;
+    font-size: 20px;
+    color: #3f3f3f;
+}
+
+.accueil-screen main,
+ .gestion-joueurs-screen main,
+ .lister-joueurs-screen main,
+ .top-1er-screen main,
+ .top-2e-screen main,
+ .top-3e-screen main,
+ .top-chien-screen main,
+ .parametres-screen main,
+ .jouer-partie-screen main,
+ .les-parties-screen main,
+ .partie-encours-screen main,
+ .partie-terminer-screen main,
+ .marquage-partie-screen main,
+ .statistiques-screen main,
+ #propos-doma-screen main{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.accueil-screen main button,
+.gestion-joueurs-screen main button,
+.lister-joueurs-screen main button,
+.top-1er-screen main button,
+.top-2e-screen main button,
+.top-3e-screen main button,
+.top-chien-screen main button,
+.parametres-screen main button,
+.jouer-partie-screen main button,
+.les-parties-screen main button,
+.partie-encours-screen main button,
+.partie-terminer-screen main button,
+.statistiques-screen main button,
+#propos-doma-screen main button{
+   
+    display: grid;
+   grid-template-columns: 50px 1fr;
+   align-items: center;
+    color: #3f3f3f;
+    /* background: #f5f5f5; */
+    background: #ffffff;
+    border: 0;
+    border-top: solid 1px #dcdcdc;
+}
+
+.accueil-screen main button:hover,
+.gestion-joueurs-screen main button:hover,
+.lister-joueurs-screen main button:hover,
+.top-1er-screen main button:hover,
+.top-2e-screen main button:hover,
+.top-3e-screen main button:hover,
+.top-chien-screen main button:hover,
+.parametres-screen main button:hover,
+.jouer-partie-screen main button:hover,
+.les-parties-screen main button:hover,
+.partie-encours-screen main button:hover,
+.partie-terminer-screen main button:hover,
+.statistiques-screen main button:hover,
+#propos-doma-screen main button:hover{
+    background: #f5f5f5;
+}
+
+.accueil-screen main button i,
+.gestion-joueurs-screen main button i,
+.lister-joueurs-screen main button i,
+.top-1er-screen main button i,
+.top-2e-screen main button i,
+.top-3e-screen main button i,
+.top-chien-screen main button i,
+.parametres-screen main button i,
+.jouer-partie-screen main button i,
+.les-parties-screen main button i,
+.partie-encours-screen main button i,
+.partie-terminer-screen main button i,
+.statistiques-screen main button i,
+#propos-doma-screen main button i{
+    font-size: 20px;
+    
+    padding: 10px;
+}
+
+.accueil-screen main button div,
+.gestion-joueurs-screen main button div,
+.lister-joueurs-screen main button div,
+.parametres-screen main button div,
+.jouer-partie-screen main button div,
+.les-parties-screen main button div,
+.statistiques-screen main button div,
+#propos-doma-screen main button div{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background: #b86868; */
+}
+
+.partie-terminer-screen main button div,.partie-encours-screen main button div{
+    display: flex;
+    align-items: center;
+}
+
+.partie-terminer-screen main button div i,.partie-encours-screen main button div i{
+    margin-left: auto;
+}
+
+.top-1er-screen main button div,
+.top-2e-screen main button div,
+.top-3e-screen main button div,
+.top-chien-screen main button div{
+    padding: 10px;
+    display: flex;
+    /* flex-direction: ro; */
+    align-items: center;
+
+}
+
+.accueil-screen main button:last-child,
+.gestion-joueurs-screen main button:last-child,
+.lister-joueurs-screen main button:last-child,
+.top-1er-screen main button:last-child,
+.top-2e-screen main button:last-child,
+.top-3e-screen main button:last-child,
+.top-chien-screen main button:last-child,
+.parametres-screen main button:last-child,
+.jouer-partie-screen main button:last-child,
+.les-parties-screen main button:last-child,
+.partie-encours-screen main button:last-child,
+.partie-terminer-screen main button:last-child,
+.statistiques-screen main button:last-child,
+#propos-doma-screen main button:last-child{
+    border-bottom: solid 1px #dcdcdc;
+   
+}
+
+.accueil-screen main button span,
+.gestion-joueurs-screen main button span,
+.parametres-screen main button span,
+.jouer-partie-screen main button span,
+.les-parties-screen main button span,
+.partie-encours-screen main button span,
+.partie-terminer-screen main button span,
+.statistiques-screen main button span,
+#propos-doma-screen main button span{
+    /* font-weight: bold; */
+    font-size: 16px;
+    color: #1b1b1b;
+}
+
+.gestion-joueurs-screen,
+.ajouter-joueur-screen,
+.modifier-joueur-screen,
+.parametres-screen,
+.parametres-partie-screen,
+.jouer-partie-screen,
+.nouvelle-partie-screen,
+.les-parties-screen,
+.partie-encours-screen,
+.partie-terminer-screen,
+.marquage-partie-screen,
+.statistiques-screen,
+#propos-doma-screen,
+#help-screen,
+#important-screen{
+    width: 100%;
+    height: 100vh;
+}
+
+.gestion-joueurs-screen header,
+.ajouter-joueur-screen header,
+.lister-joueurs-screen header,
+.top-1er-screen header,
+.top-2e-screen header,
+.top-3e-screen header,
+.top-chien-screen header,
+.modifier-joueur-screen header,
+.parametres-screen header,
+.parametres-partie-screen header,
+.jouer-partie-screen header,
+.nouvelle-partie-screen header,
+.les-parties-screen header,
+.partie-encours-screen header,
+.partie-terminer-screen header,
+.marquage-partie-screen header,
+.statistiques-screen header,
+#propos-doma-screen header,
+#help-screen header,
+#important-screen header{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+    font-weight: bold;
+    border-bottom: solid 1px #dcdcdc;
+    color: #3f3f3f;
+   
+}
+
+.lister-joueurs-screen header,
+.top-1er-screen header,
+.top-2e-screen header,
+.top-3e-screen header,
+.top-chien-screen header{
+    position: fixed;
+    width: 100%;
+    background: #fff;
+}
+
+.lister-joueurs-screen main,
+.top-1er-screen main,
+.top-2e-screen main,
+.top-3e-screen main,
+.top-chien-screen main{
+   padding-top: 35px;
+   
+}
+
+.gestion-joueurs-screen i,.ajouter-joueur-screen i{
+    font-size: 20px;
+}
+
+.ajouter-joueur-screen main,
+.modifier-joueur-screen main,
+.parametres-partie-screen main,
+.nouvelle-partie-screen main{
+    padding:5px;
+   height: calc(100% - 37px);
+}
+
+.marquage-partie-screen main{
+    height: calc(100% - 37px);
+}
+
+.ajouter-joueur-screen main form,
+.modifier-joueur-screen main form,
+.parametres-partie-screen main form,
+.nouvelle-partie-screen main form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.ajouter-joueur-screen main .input-controls,
+.parametres-partie-screen main .input-controls,
+.nouvelle-partie-screen main .input-controls{
+    padding: 10px;
+}
+
+
+.modifier-joueur-screen main .input-controls{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    padding: 10px;
+}
+
+
+.ajouter-joueur-screen main .input-controls label,
+.modifier-joueur-screen main .input-controls label,
+.parametres-partie-screen main .input-controls label,
+.nouvelle-partie-screen main .input-controls label{
+    /* font-weight: bold; */
+    font-size: 18px;
+}
+
+.ajouter-joueur-screen main .input-controls input,
+.modifier-joueur-screen main .input-controls input,
+.parametres-partie-screen main .input-controls input,
+.nouvelle-partie-screen main .input-controls input{
+   border: 1px solid #a7a7a7;
+   border-radius: 5px;
+   padding: 3px 5px;
+   font-size: 16px;
+   outline-color: #7d7d7d;
+}
+
+.ajouter-joueur-screen main input[type="submit"],
+.modifier-joueur-screen main input[type="submit"],
+.parametres-partie-screen main input[type="submit"],
+.nouvelle-partie-screen main input[type="submit"]{
+  margin-top: auto;
+  padding: 5px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 1px 5px 1px #929191;
+  border-radius: 5px;
+  font-size: 18px;
+  background: #f3f3f3;
+}
+
+
+
+.button-fermer button{
+  margin-top: auto;
+  padding: 5px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 1px 5px 1px #929191;
+  border-radius: 5px;
+  font-size: 18px;
+  background: #f3f3f3;
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.notification-screen{
+    width: 100%;
+    height: 100vh;
+    background: #b4b4b484;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-screen .notification-popup{
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-screen .notification-popup div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 20px 5px;
+}
+
+.notification-screen .notification-popup div i{
+    color: #0f0;
+    font-size: 25px;
+}
+
+.notification-screen .notification-popup div span{
+    font-weight: bold;
+    color: #4b4b4b;
+}
+
+.notification-screen .notification-popup button{
+  padding: 5px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 1px 4px 1px #b6b5b5;
+  border-radius: 5px;
+  font-size: 18px;
+  background: #f1f1f1;
+}
+
+.notification-screen .choice-popup{
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px 1px #b6b5b5;
+}
+
+.notification-screen .choice-popup h3{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.notification-screen .choice-popup button{
+    padding: 5px;
+    border-radius: 5px;
+    border:0;
+
+    box-shadow: 0px 1px 4px 1px #b6b5b5;
+}
+
+
+
+@keyframes apparition {
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes disparition {
+    100%{
+       
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
+
+.nouvelle-partie-screen .players-layout{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+/*---------------------------------------------- */
+
+
+.marquage-partie-screen main .date-box{
+    background: #2b2a2a;
+    color: #bdbbbb;
+    font-size: 15px;
+    padding: 2px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.marquage-partie-screen main .date-box span{
+    color: #bdbbbb;
+    font-weight: 800;
+
+}
+
+.marquage-partie-screen main .progress-bar{
+    position: relative;
+    width: 100%;
+    height: 1em;
+    /* background: #111; */
+    border-radius: 0.30em;
+    /* color: #fff; */
+    border: 1px solid rgb(39, 39, 39);;
+}
+
+.marquage-partie-screen main .progress-bar::before{
+    content: "";
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0.125em;
+    top: 0.125em;
+    bottom: 0.125em;
+    width: calc(var(--width,100) * 1%);
+    min-width: 0.25rem;
+    max-width: calc(100% - 0.75em);
+    background: #747272;
+    border-radius: 0.25em;
+    padding: 0.25em;
+    
+}
+
+.marquage-partie-screen main .box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.marquage-partie-screen main .box-player{
+    padding: 5px;
+}
+
+.marquage-partie-screen main .box-player .entete div{
+   display: flex;   
+}
+
+.marquage-partie-screen main .box-player .entete{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.marquage-partie-screen main .box-player .entete > span:first-child{
+    font-weight: bold;
+    
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.marquage-partie-screen main .box-player .entete div .point-restant{
+    margin-left: auto;
+}
+
+
+
+
+/* ----------------------------------- */
+
+.box-commandes{
+    /* background: #000; */
+    width: 100%;
+    margin-top: auto;
+    /* padding: 10px; */
+}
+
+.box-commandes .commandes-point{
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   gap: 1px;
+  
+}
+
+.box-commandes .input-controls{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 5px;
+}
+
+.box-commandes .commandes-point button{
+    padding: 8px;
+    background: #747272;
+    border-radius: 3px;
+    border:0;
+    color: #fff;
+}
+
+.box-commandes .commandes-player{
+  display: grid;
+   grid-template-columns: repeat(2,1fr);
+   /* grid-template-rows: repeat(2,1fr); */
+}
+
+.box-commandes .commandes-player span{
+    /* background: #939393; */
+    padding: 10px;
+    border: 1px solid #c1c1c1;
+    text-align: center;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.player-cocher{
+    background: #d2d1d1;
+}
+
+/* ------------------------------------------------------- */
+
+
+/*--------------------------------*/
+
+.presentation-popup{
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.presentation-popup header{
+    font-weight: bold;
+    padding-bottom: 10px;
+    font-size: 17px;
+}
+
+.presentation-popup main div{
+    padding: 5px 0;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+}
+
+.presentation-popup main .button-choice{
+    display: flex;
+    gap: 3px;
+}
+
+.presentation-popup main .button-choice button{
+    padding:  3px;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px 1px #b6b5b5;
+    font-weight: bold;
+}
+
+.presentation-popup main .button-choice > button:first-child{
+    background: #0f0;
+    color: #fff;
+   
+}
+
+.presentation-popup main div span {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.presentation-popup main div span > span{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.presentation-popup main #first-player span{
+    color: #0f0;
+}
+
+.presentation-popup main #last-player span{
+    color: #f00;
+}
+
+.choisir-troisieme-popup{
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.choisir-troisieme-popup h5{
+    padding-bottom: 10px;
+}
+
+.choisir-troisieme-popup input[type="submit"]{
+   border: 0;
+   padding: 0 20px;
+   box-shadow: 0px 1px 4px 1px #b6b5b5;
+   margin-left: auto;
+}
+
+.choisir-troisieme-popup select{width: 60%;}
+
+.choisir-troisieme-popup form div{
+    display: flex;
+    width: 100%;
+ 
+}
+
+.counter{
+    background: #3f3f3f;
+    border-radius: 50%;
+    max-width: 10px; 
+    max-height: 10px;  
+    width: fit-content;
+    height: fit-content;
+    padding: 2px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    font-size: 12px;
+    color: #fff;
+    margin-left: auto;
+}
+
+/*-------------------------------*/
+
+/*------------------------------*/
+.login-screen{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+}
+
+.login-screen .login-container{
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px 1px #b6b5b5;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+.login-screen .login-container h3{
+    text-align: center;
+    padding: 30px 0;
+}
+
+.login-screen .login-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-screen .login-container form label{
+    text-align: center;
+}
+
+.login-screen .login-container form input[type="password"]{
+    padding: 3px;
+    text-align: center;
+    outline-color: #747474;
+    border: 1px solid #747474;
+    border-radius: 5px;
+
+}
+
+.login-screen .login-container form input[type="submit"]{
+    padding: 5px;
+    border-radius: 5px;
+    border:0;
+    box-shadow: 0px 1px 4px 1px #b6b5b5;
+}
+
+.countdown {
+    font-size: 1.5em;
+}
+
+/*-----------------------------*/
+
+
+
+.screen{
+    width: 100%;
+    height: 100vh; 
+}
+
+.flex{display: flex;}
+
+.flex-center{
+    
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-center--x{justify-content: center;}
+
+.flex-center--y{align-items: center;}
+
+.layout{flex-direction: column;}
+
+.layout__header{
+    /* background: #b27272; */
+    height: 35px;
+    gap: 10px;
+    padding: 0 5px;
+    border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;
+}
+
+.layout__main{
+   
+    height: 100%;
+}
+
+
+video{
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border:0;
+    background: #cacaca;
+    border-bottom: 1px solid #6c6c6c;
+  
+  }
+  
+  .video-container{
+     
+      /* border-bottom: 1px solid #6c6c6c; */
+      box-shadow: 0px 4px 8px 1px #f3f2f2;
+  }
+  
+  .layout__main-video{
+      height: calc(100% - 35px);
+      display: flex;
+      flex-direction: column;
+      gap:20px;
+      overflow-y: auto;
+    
+  }
+  
+  .video-container .titre{
+      font-weight: bold;
+      padding: 5px;
+     
+  }
+  
+  #important-screen p{
+    padding: 5px;
+  }
+
+
+
+.hidden{
+    display: none;
+}

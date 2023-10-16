@@ -1,0 +1,109 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* align-items: center;
+    justify-content: center; */
+    height: 100vh;
+    width: 100%;
+}
+
+.progress-bar{
+    position: relative;
+    width: 100%;
+    height: 1em;
+    /* background: #111; */
+    border-radius: 0.30em;
+    /* color: #fff; */
+    border: 1px solid rgb(39, 39, 39);;
+}
+
+.progress-bar::before{
+    content: "";
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0.125em;
+    top: 0.125em;
+    bottom: 0.125em;
+    width: calc(var(--width,100) * 1%);
+    min-width: 0.75rem;
+    max-width: calc(100% - 0.5em);
+    background: #747272;;
+    border-radius: 0.25em;
+    padding: 0.25em;
+    
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box-player header div{
+   display: flex;   
+}
+
+.box-player header{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.box-player header > span:first-child{
+    font-weight: bold;
+    
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.box-player header div .point-restant{
+    margin-left: auto;
+}
+
+/* ----------------------------------- */
+
+.box-commandes{
+    /* background: #000; */
+    width: 100%;
+    margin-top: auto;
+    /* padding: 10px; */
+}
+
+.box-commandes .commandes-point{
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   gap: 1px;
+  
+}
+
+.box-commandes .commandes-point button{
+    padding: 5px;
+    background: #747272;
+    border-radius: 3px;
+    border:0;
+    color: #fff;
+}
+
+.box-commandes .commandes-player{
+    display: grid;
+   grid-template-columns: repeat(2,1fr);
+   /* grid-template-rows: repeat(2,1fr); */
+}
+
+.box-commandes .commandes-player span{
+    /* background: #939393; */
+    padding: 10px;
+    border: 1px solid #c1c1c1;
+    text-align: center;
+    border-radius: 3px;
+    font-weight: bold;
+}
